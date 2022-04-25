@@ -8,7 +8,7 @@ function openguide(plr)
 end
 
 function initguide()
-  for x in pairs(cJson:Parse(const.))
+  for x in pairs(cJson:Parse(const.featurepath.."main.json"))
   
 end
 

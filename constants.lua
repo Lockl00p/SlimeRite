@@ -1,7 +1,7 @@
 local const = {}
 const.pathseparator = cFile:GetPathSeparator()
 
-const.featurepath = cPluginManager:GetPluginsPath().. const.pathseparator.."SlimeRiteItems" 
+const.featurepath = cPluginManager:GetPluginsPath().. const.pathseparator.."SlimeRiteThings" 
 
 const.pluginpath = cPluginManager:GetPluginsPath()..
 
