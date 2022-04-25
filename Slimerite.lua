@@ -47,7 +47,7 @@ function Initialize(Plugin)
 	return true
 end
 
-
+--For the sake of I don't wanna make this a complicated hellhole, I'm about to use other lua files.
 
 
 
