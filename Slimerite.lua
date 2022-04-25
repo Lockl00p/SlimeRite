@@ -1,6 +1,12 @@
 PLUGIN = nil
+
+
+
 --makes it easier to call the plugin manager
+
 local plugin = cPluginManager
+
+const = require("constants")
 
 --Functions
 --makes it easier to add a hook
@@ -30,12 +36,12 @@ end
 function Initialize(Plugin)
 	Plugin:SetName("SlimeRite")
 	Plugin:SetVersion(0)
-
+  initguide()
 	-- Hooks
   
 	PLUGIN = Plugin -- NOTE: only needed if you want OnDisable() to use GetName() or something like that
   addhook(plugin.HOOK_PLAYER_JOINED,whenSpawned)
-  
+  addhook(plugin.HOOK_PLAYER_RIGHT_CLICK,onRClick)
   --Hooks End
   
   
@@ -44,6 +50,7 @@ function Initialize(Plugin)
 	--Command Bindings End
   
   LOG("Initialised version " .. Plugin:GetVersion())
+  LOG(const.pluginpath)
 	return true
 end
 
@@ -53,5 +60,6 @@ end
 
 function OnDisable()
 	LOG("Shutting down SlimeRite")
+  
 end
 			
