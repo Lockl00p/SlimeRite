@@ -6,11 +6,15 @@ guidecontents = guidewindow:GetContents()
 function openguide(plr)
   guidewindow:SetOnClicked(guideclicked)
   plr:OpenWindow(guidewindow)
+  if cFile:IsFile(const.pdatapath..plr:GetName()..".json") == false then
+    --Creates Plrdata
+    LOG("New Playerdata file created.")
+    local pdata = io.open(const.pdatapath..plr:GetName()..".json","w")
+    pdata:write(const.plrdatatemplate)
+    io.close(pdata)
+    
 end
-
-function addcategory()
-  
-  end
+end
 function initguide()
   
   --First, set up the guide buttons.

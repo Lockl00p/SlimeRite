@@ -3,7 +3,7 @@
 function onRClick(plr,bx,by,bz,bf,cx,cy,cz)
   --Declarations
   
-  LOG("Player Right Clicked")
+  
   local BlockCoords=Vector3i(bx,by,bz)
   local plrinv = plr:GetInventory()
   

@@ -50,7 +50,6 @@ function Initialize(Plugin)
 	--Command Bindings End
   
   LOG("Initialised version " .. Plugin:GetVersion())
-  LOG(const.pluginpath)
 	return true
 end
 
