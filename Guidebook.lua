@@ -1,26 +1,57 @@
 guidewindow = cLuaWindow(0,9,6,"SlimeRite guide!")
 guidecontents = guidewindow:GetContents()
 
-
-
-function openguide(plr)
-  guidewindow:SetOnClicked(guideclicked)
-  plr:OpenWindow(guidewindow)
+function getpdata(plr)
+  local pdata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","rw")
+  
+  
   if cFile:IsFile(const.pdatapath..plr:GetName()..".json") == false then
     --Creates Plrdata
     LOG("New Playerdata file created for "..plr.GetName())
-    local pdata = io.open(const.pdatapath..plr:GetName()..".json","w")
-    pdata:write(const.plrdatatemplate)
-    io.close(pdata)
     
+    pdata:write(const.plrdatatemplate)
+  end
+  
+  
+    io.close(pdata)
+    return cJson:Parse(cFile:ReadWholeFile(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","rw"))
+  
 end
+
+
+function setpdata(plr,key, awmd)
+  local pldata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","rw")
+  local pdata = getpdata(plr)
+  if awmd == "w" then 
+    LOG("This is a Debug function, do not use it unless you're sure you want to erase the player's data and replace it. If you are sure, next time type in [1,true] for this parameter")
+  elseif awmd == [1,true] then
+    LOG("Replacing"..plr:GetName() "data.")
+    pdata.ItemsUnlocked = key
+    pldata:write(cJson:Serialize(pdata))
+  else
+    table.insert(pdata.ItemsUnlocked,key)
+    pldata:write(cJson:Serialize(pdata))
+  end
+  end
+  
+  
+  
+  
+function openguide(plr)
+  guidewindow:SetOnClicked(guideclicked)
+  plr:OpenWindow(guidewindow)
+  thispdata = getpdata
+
+    
+
 end
 function initguide()
   
   --First, set up the guide buttons.
   guideborder()
   --Now we set up the categories.
-
+  categorysetup()
+  
 end 
 
 function guideclicked(win,plr,SlotNum,ClickAct,Clkitem)
@@ -54,4 +85,16 @@ function guideborder()
 end
 function categorysetup()
   --y 1 - 5
-  for x in 
+  --This parses the json into a table.
+  categorylist = cattotable()
+  LOG("Setting up Categories in guide window")
+  
+  
+  
+end
+function cattotable()
+  local categorylist = cJson:Parse(cFile:ReadWholeFile(const.pluginpath.."categories.json"))
+  LOG("Loaded Main Categories")
+  LOG("Loaded Main Category Items.")
+  return categorylist
+end

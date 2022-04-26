@@ -1,6 +1,5 @@
 PLUGIN = nil
 
-categoryfile = io.open(const.pluginpath.."categories.json")
 
 --makes it easier to call the plugin manager
 
@@ -59,6 +58,5 @@ end
 
 function OnDisable()
 	LOG("Shutting down SlimeRite")
-  io.close(categoryfile)
 end
 			

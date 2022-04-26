@@ -1,1 +1,4 @@
-s
+{
+    "CategoryNames" : ["Weapons","Armor","Useful Items","Basic Machines","Tools","Resources","Food","Magic Items", "Magic Armor", "Technical Components", "Energy and Electricity", "Androids"],
+    "CategoryItems" : [268,307,327,23,257,331,297,437,314,27,76,42]
+}
