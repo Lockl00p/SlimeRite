@@ -24,7 +24,7 @@ function setpdata(plr,key, awmd)
   local pdata = getpdata(plr)
   if awmd == "w" then 
     LOG("This is a Debug function, do not use it unless you're sure you want to erase the player's data and replace it. If you are sure, next time type in [1,true] for this parameter")
-  elseif awmd == [1,true] then
+  elseif awmd == {1,true} then
     LOG("Replacing"..plr:GetName() "data.")
     pdata.ItemsUnlocked = key
     pldata:write(cJson:Serialize(pdata))
