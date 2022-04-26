@@ -15,10 +15,18 @@ function addcategory()
 function initguide()
   
   --First, set up the guide buttons.
-  
-  --Top Row
+  guideborder()
+
+end 
+
+function guideclicked(win,plr,SlotNum,ClickAct,Clkitem)
+  return true
+end 
+function guideborder()
+    --Top Row
   --as a refresher, first param for for loop is variable made, second is max num of var, 3rd is increment value (default is one)
-  for x = 0,7 do
+
+    for x = 0,7 do
     guidecontents:SetSlot(x,0,const.emptyitem)
   end
   --The Settings Compass
@@ -39,8 +47,4 @@ function initguide()
       guidecontents:SetSlot(x,5,const.emptyitem)
     end
   end
-end 
-
-function guideclicked(win,plr,SlotNum,ClickAct,Clkitem)
-  return true
-  end 
+  end
