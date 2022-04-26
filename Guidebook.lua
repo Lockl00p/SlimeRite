@@ -2,19 +2,19 @@ guidewindow = cLuaWindow(0,9,6,"SlimeRite guide!")
 guidecontents = guidewindow:GetContents()
 
 function getpdata(plr)
-  local pdata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","rw")
+  pdata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","w")
   
   
-  if cFile:IsFile(const.pdatapath..plr:GetName()..".json") == false then
+  if cFile:IsFile(const.pdatapath..plr:GetName().."_ItemsUnlocked.json") == false then
     --Creates Plrdata
-    LOG("New Playerdata file created for "..plr.GetName())
+    LOG("New Playerdata file created for "..plr:GetName())
     
-    pdata:write(const.plrdatatemplate)
+    pdata:write("{'ItemsUnlocked' : [0,1]}")
   end
   
   
     io.close(pdata)
-    return cJson:Parse(cFile:ReadWholeFile(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","rw"))
+    return cJson:Parse(cFile:ReadWholeFile(const.pdatapath..plr:GetName().."_ItemsUnlocked.json"))
   
 end
 
@@ -40,7 +40,7 @@ function setpdata(plr,key, awmd)
 function openguide(plr)
   guidewindow:SetOnClicked(guideclicked)
   plr:OpenWindow(guidewindow)
-  thispdata = getpdata
+  thispdata = getpdata(plr)
 
     
 

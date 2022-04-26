@@ -9,7 +9,7 @@ const.guide = cItem(E_ITEM_BOOK,1,0,"","SlimeRite Guide")
 
 const.emptyitem = cItem(160,1,15,"","-")
 
-const.plrdatatemplate = cJson:Parse(cFile:ReadWholeFile(const.pluginpath.."PdataTemplate.json"))
+const.plrdatatemplate = cFile:ReadWholeFile(const.pluginpath.."PdataTemplate.json")
 
 
 
