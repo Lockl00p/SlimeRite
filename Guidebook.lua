@@ -21,7 +21,8 @@ function initguide()
   for x = 0,7 do
     guidecontents:SetSlot(x,0,const.emptyitem)
   end
-  guidecontents:SetSlot(8,0,cItem(345,1,0))
+  --The Settings Compass
+  guidecontents:SetSlot(8,0,cItem(345,1,0,"","Settings"))
   --Top Row End
   
   --Bottom Row
@@ -33,6 +34,7 @@ function initguide()
         guidecontents:SetSlot(x,4,cItem(160,1,5,"","Left"))
       else
         guidecontents:SetSlot(x,4,cItem(160,1,5,"","Right"))
+      end
     else 
       guidecontents:SetSlot(x,4,const.emptyitem)
     end
