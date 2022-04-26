@@ -20,7 +20,7 @@ function initguide()
     guidecontents:SetSlot(x,0,const.emptyitem)
   end
   guidecontents:SetSlot(8,0,cItem(345,1,0))
-  Bottomrow.Add(
+  
   
 end 
 
