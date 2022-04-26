@@ -1,11 +1,9 @@
 guidewindow = cLuaWindow(0,9,6,"SlimeRite guide!")
 guidecontents = guidewindow:GetContents()
-
+guidewindow:SetOnClicked(guideclicked)
 
 
 function openguide(plr)
-  LOG("Guide opened by ".. plr:GetName())
-  guidewindow:SetOnClicked(guideclicked)
   plr:OpenWindow(guidewindow)
 end
 
