@@ -1,15 +1,25 @@
 guidewindow = cLuaWindow(0,6,9,"SlimeRite guide!")
 guidecontents = guidewindow:GetContents()
 
+Bottomrow = cItems()
+
 function openguide(plr)
   LOG("Guide opened by ".. plr:GetName())
-  guidewindow:SetOnClicked()
+  guidewindow:SetOnClicked(guideclicked)
   plr:OpenWindow(guidewindow)
 end
 
-function initguide()
-  for x in pairs(cJson:Parse(const.featurepath.."main.json"))
+function addcategory()
   
-end
+  end
+function initguide()
+  
+  --First, set up the guide buttons.
+  
+  
+  
+end 
 
-function 
+function guideclicked(win,plr,SlotNum,ClickAct,Clkitem)
+  return true
+  end
