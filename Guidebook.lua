@@ -25,11 +25,16 @@ function initguide()
   --Top Row End
   
   --Bottom Row
+  --This sets up the empty items
   for x = 0,8 do
+    --this sets up the buttons
     if x == 1 or x == 7 then
-      guidecontents:SetSlot(x,5,160,1,5)
+      if x == 1 then
+        guidecontents:SetSlot(x,4,cItem(160,1,5,"","Left"))
+      else
+        guidecontents:SetSlot(x,4,cItem(160,1,5,"","Right"))
     else 
-      guidecontents:SetSlot(x,5,const.emptyitem)
+      guidecontents:SetSlot(x,4,const.emptyitem)
     end
   end
 end 
