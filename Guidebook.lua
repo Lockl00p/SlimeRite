@@ -8,7 +8,7 @@ function openguide(plr)
   plr:OpenWindow(guidewindow)
   if cFile:IsFile(const.pdatapath..plr:GetName()..".json") == false then
     --Creates Plrdata
-    LOG("New Playerdata file created.")
+    LOG("New Playerdata file created for "..plr.GetName())
     local pdata = io.open(const.pdatapath..plr:GetName()..".json","w")
     pdata:write(const.plrdatatemplate)
     io.close(pdata)
@@ -19,6 +19,7 @@ function initguide()
   
   --First, set up the guide buttons.
   guideborder()
+  --Now we set up the categories.
 
 end 
 
@@ -50,4 +51,7 @@ function guideborder()
       guidecontents:SetSlot(x,5,const.emptyitem)
     end
   end
-  end
+end
+function categorysetup()
+  --y 1 - 5
+  for x in 

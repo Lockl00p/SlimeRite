@@ -1,10 +1,10 @@
 PLUGIN = nil
 
-
+categoryfile = io.open(const.pluginpath.."categories.json")
 
 --makes it easier to call the plugin manager
 
-local plugin = cPluginManager
+plugin = cPluginManager
 
 const = require("constants")
 
@@ -59,6 +59,6 @@ end
 
 function OnDisable()
 	LOG("Shutting down SlimeRite")
-  
+  io.close(categoryfile)
 end
 			
