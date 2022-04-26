@@ -15,7 +15,9 @@ function addcategory()
 function initguide()
   
   --First, set up the guide buttons.
-  
+  --as a refresher, first param for for loop is variable made, second is max num of var, 3rd is increment value (default is one)
+  for x = 0,7 do
+    guidecontents.setslot(x,0,const.emptyitem)
   
   
 end 
