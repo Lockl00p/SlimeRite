@@ -1,4 +1,4 @@
-guidewindow = cLuaWindow(0,9,5,"SlimeRite guide!")
+guidewindow = cLuaWindow(0,9,6,"SlimeRite guide!")
 guidecontents = guidewindow:GetContents()
 
 
@@ -31,12 +31,12 @@ function initguide()
     --this sets up the buttons
     if x == 1 or x == 7 then
       if x == 1 then
-        guidecontents:SetSlot(x,4,cItem(160,1,5,"","Left"))
+        guidecontents:SetSlot(x,5,cItem(160,1,5,"","Left"))
       else
-        guidecontents:SetSlot(x,4,cItem(160,1,5,"","Right"))
+        guidecontents:SetSlot(x,5,cItem(160,1,5,"","Right"))
       end
     else 
-      guidecontents:SetSlot(x,4,const.emptyitem)
+      guidecontents:SetSlot(x,5,const.emptyitem)
     end
   end
 end 
