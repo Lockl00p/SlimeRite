@@ -42,8 +42,11 @@ function setpdata(plr,key, awmd) --probably not working
   
   
 function openguide(plr)
+  --Sets on clicked event
   guidewindow:SetOnClicked(guideclicked)
+  --opens the window
   plr:OpenWindow(guidewindow)
+  --gets player data (only really to make sure they have plrdata as of now)
   thispdata = getpdata(plr)
 
     
@@ -59,7 +62,8 @@ function initguide()
 end 
 
 function guideclicked(win,plr,SlotNum,ClickAct,Clkitem)
-  return true
+  --Passes it off to the next Guidebook lua script because this one is getting too long.
+  return ongclicked(win,plr,SlotNum,ClickAct,Clkitem)
 end 
 function guideborder()
     --Top Row
