@@ -1,5 +1,7 @@
 guidewindow = cLuaWindow(0,9,6,"SlimeRite guide!")
 guidecontents = guidewindow:GetContents()
+local LeftOutNames = {} 
+local LeftOutIds = {}
 
 function getpdata(plr)
    
@@ -87,12 +89,19 @@ function guideborder()
 end
 function categorysetup()
   --y 1 - 5
+  Startslot = guidecontents:GetSlotNum(0,1)
+  Endslot = guidecontents:GetSlotNum(9,5)
   --This parses the json into a table.
   categorylist = cattotable()
   LOG("Setting up Categories in guide window")
   
-  
-  
+  for x = 0, pairs(categorylist.CategoryNames) do
+    if Startslot + x < Endslot then
+      guidecontents:SetSlot(Startslot + x,cItem())
+    else
+      table.insert(LeftOutNames,categorylist.CategoryNames[x+1])
+      table.insert(LeftOutIds, categorylist.CategoryItems[x+1]) 
+    end
 end
 function cattotable()
   local categorylist = cJson:Parse(cFile:ReadWholeFile(const.pluginpath.."categories.json"))
