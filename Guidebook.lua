@@ -2,25 +2,27 @@ guidewindow = cLuaWindow(0,9,6,"SlimeRite guide!")
 guidecontents = guidewindow:GetContents()
 
 function getpdata(plr)
-  pdata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","w")
+   
   
   
   if cFile:IsFile(const.pdatapath..plr:GetName().."_ItemsUnlocked.json") == false then
-    --Creates Plrdata
+   --Creates Plrdata
+    pdata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","w")
     LOG("New Playerdata file created for "..plr:GetName())
     
     pdata:write("{'ItemsUnlocked' : [0,1]}")
+    io.close(pdata)
   end
   
   
-    io.close(pdata)
+    
     return cJson:Parse(cFile:ReadWholeFile(const.pdatapath..plr:GetName().."_ItemsUnlocked.json"))
   
 end
 
 
-function setpdata(plr,key, awmd)
-  local pldata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","rw")
+function setpdata(plr,key, awmd) --probably not working
+  local pldata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","r+")
   local pdata = getpdata(plr)
   if awmd == "w" then 
     LOG("This is a Debug function, do not use it unless you're sure you want to erase the player's data and replace it. If you are sure, next time type in [1,true] for this parameter")
