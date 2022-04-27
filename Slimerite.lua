@@ -49,6 +49,8 @@ function Initialize(Plugin)
 	--Command Bindings End
   
   LOG("Initialised version " .. Plugin:GetVersion())
+  LOG("Thanks, TheBusyBiscuit for creating the original slimefun!")
+  LOG("In respect to TBB, here's the link to official SF4: https://github.com/Slimefun/Slimefun4")
 	return true
 end
 

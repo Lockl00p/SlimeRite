@@ -61,7 +61,7 @@ function initguide()
   
 end 
 
-function guideclicked(win,plr,SlotNum,ClickAct,Clkitem)
+local function guideclicked(win,plr,SlotNum,ClickAct,Clkitem)
   --Passes it off to the next Guidebook lua script because this one is getting too long.
   return ongclicked(win,plr,SlotNum,ClickAct,Clkitem)
 end 
@@ -108,7 +108,7 @@ function cattotable()
   LOG("Loaded Main Category Items.")
   return categorylist
 end
-function guidebuilderI()
+local function guidebuilderI()
   for x,z in ipairs(categorylist.CategoryNames) do
     if Startslot + x < Endslot then
       guidecontents:SetSlot(Startslot + x - 1,cItem(categorylist.CategoryItems[x],1,0,"",z))
