@@ -1,3 +1,4 @@
 {
-   "ItemsUnlocked" : [0,1]
+   "ItemsUnlocked" : [0,1],
+   "CategoriesUnlocked": [1,2,3]
 }

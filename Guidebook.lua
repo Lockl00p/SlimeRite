@@ -90,22 +90,27 @@ end
 function categorysetup()
   --y 1 - 5
   Startslot = guidecontents:GetSlotNum(0,1)
-  Endslot = guidecontents:GetSlotNum(9,5)
+  Endslot = guidecontents:GetSlotNum(8,4)
   --This parses the json into a table.
   categorylist = cattotable()
-  LOG("Setting up Categories in guide window")
-  
-  for x = 0, pairs(categorylist.CategoryNames) do
-    if Startslot + x < Endslot then
-      guidecontents:SetSlot(Startslot + x,cItem())
-    else
-      table.insert(LeftOutNames,categorylist.CategoryNames[x+1])
-      table.insert(LeftOutIds, categorylist.CategoryItems[x+1]) 
-    end
+  LOG("Setting up Categories in guide window Page One")
+  guidebuilderI()
+  LOG("Set up Categories in Guide window page one.")  
 end
+
 function cattotable()
   local categorylist = cJson:Parse(cFile:ReadWholeFile(const.pluginpath.."categories.json"))
   LOG("Loaded Main Categories")
   LOG("Loaded Main Category Items.")
   return categorylist
 end
+function guidebuilderI()
+  for x,z in ipairs(categorylist.CategoryNames) do
+    if Startslot + x < Endslot then
+      guidecontents:SetSlot(Startslot + x - 1,cItem(categorylist.CategoryItems[x],1,0,"",z))
+    else
+      table.insert(LeftOutNames,z)
+      table.insert(LeftOutIds, categorylist.CategoryItems[x+1]) 
+    end
+    end
+    end
