@@ -1,4 +1,4 @@
 function ongclick(win,plr,SlotNum,ClickAct,Clkitem) 
-  LOG("test")
+  if Clkitem.
   return true
-  end
+end
