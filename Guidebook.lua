@@ -63,6 +63,9 @@ end
 
 function guideclicked(win,plr,SlotNum,ClickAct,Clkitem)
   --Passes it off to the next Guidebook lua script because this one is getting too long.
+  if win:IsSlotInPlayerInventory(SlotNum) == true then
+    return true
+  end
   return ongclick(win,plr,SlotNum,ClickAct,Clkitem)
 end 
 function guideborder()
@@ -109,7 +112,9 @@ function cattotable()
   return categorylist
 end
 function guidebuilderI()
+  --Loops through Category names, storing them in z
   for x,z in ipairs(categorylist.CategoryNames) do
+    --Sets up the guide contents, leaving the left out items in their own tables.
     if Startslot + x < Endslot then
       guidecontents:SetSlot(Startslot + x - 1,cItem(categorylist.CategoryItems[x],1,0,"",z))
     else
