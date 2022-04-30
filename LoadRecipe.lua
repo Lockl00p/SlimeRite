@@ -23,6 +23,7 @@ function clkincat(win,plr,SlotNum,ClickAct,Clkitem)
   window:SetOnClicked(reclk)
   if isitem then
     return loaditrecipe(CraftTable,wincontents)
+  else return loadmcrecipe(CraftTable,wincontents)
   end
   return true
 end
