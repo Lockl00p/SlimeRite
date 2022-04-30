@@ -49,3 +49,6 @@ function loaditrecipe(tbl,itgrid)
 function reclk(win,plr,SlotNum,ClickAct,Clkitem)
   return true
 end
+function loadmcrecipe(tbl,itgrid)
+  
+  end
