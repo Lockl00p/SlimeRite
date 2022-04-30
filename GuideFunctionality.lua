@@ -1,5 +1,12 @@
 LeftOutItemNames = {}
 LeftOutItemIDs = {}
+function setupguidewindow(plr,tpe,x,y,nm)
+  plr:CloseWindow()
+  rwin = cLuaWindow(tpe,x,y,nm)
+  pborder(rwin:GetContents())
+  plr:OpenWindow(rwin)
+  return rwin,rwin:GetContents()
+end
 function ongclick(win,plr,SlotNum,ClickAct,Clkitem) 
 
   --Currently just prevents an error from occuring

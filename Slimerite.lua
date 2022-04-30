@@ -44,6 +44,7 @@ function Initialize(Plugin)
   --Hooks End
   
   
+  
 	-- Command Bindings = plugin.BindCommand("commandname", "permissionnode", functocall,"description of command and parameters")
   plugin.BindCommand("/SR","core.build", oncommand, "It's the SlimeRite main command. /SR guide gives you a guide and /SR version shows the plugin version.")
 	--Command Bindings End
