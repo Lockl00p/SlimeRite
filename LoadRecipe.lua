@@ -12,15 +12,18 @@ function clkincat(win,plr,SlotNum,ClickAct,Clkitem)
   local isitem = true
     
   if CraftTable == "err" then
+    LOG("test")
     CraftTable = jsontotable(const.Machinefolder..Clkitem.m_CustomName:gsub(" ","_")..".json")
-    local isitem = false
+    isitem = false
     if CraftTable == "err" then
       return true
     end
     LOG("Machine Loaded")
   end
+  --Sets up window
   window,wincontents = setupguidewindow(plr,0,9,6,CraftTable.RecipeName)
   window:SetOnClicked(reclk)
+  --Loads recipe based on whether its an item or not
   if isitem then
     return loaditrecipe(CraftTable,wincontents)
   else return loadmcrecipe(CraftTable,wincontents)
@@ -50,5 +53,11 @@ function reclk(win,plr,SlotNum,ClickAct,Clkitem)
   return true
 end
 function loadmcrecipe(tbl,itgrid)
+  i = 0
+  --iterates through all coord tables and places the related item down
+  for x, z in ipairs(tbl.coords) do
+    i = i + 1
+    itgrid:SetSlot(tbl.coords[i][1],tbl.coords[i][2],cItem(tbl.items[i][1],tbl.items[i][2],tbl.items[i][3], tbl.items[i][4],tbl.items[i][5]))
+  end
   
   end
