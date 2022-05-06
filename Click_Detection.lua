@@ -11,7 +11,8 @@ function onRClick(plr,bx,by,bz,bf,cx,cy,cz)
   if ItemToFullString(plrinv:GetEquippedItem()) == ItemToFullString(const.guide) then
     
     openguide(plr)
-    
+  else if plrinv:GetEqippedItem().m_LoreTable[1] == "Slimerite" then
+    ItemUsed(plr,bx,by,bz,bf,cx,cy,cz)
     
   end
 end
