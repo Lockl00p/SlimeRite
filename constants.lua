@@ -14,6 +14,10 @@ const.Catfolder = const.pluginpath.."Categories"..const.pathseparator
 const.Itemfolder = const.pluginpath.."Items"..const.pathseparator
 const.Machinefolder = const.pluginpath.."Machines"..const.pathseparator
 
-
+function const.CustomItems()
+local toret cFile:GetFolderContents(const.ItemFolder)
+table.remove(toret,"ItemRecipeTemplate.json")
+return toret
+end
 
 return const
