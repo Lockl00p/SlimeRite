@@ -1,6 +1,8 @@
 {
-    "Recipe_Name":"Just Some Dirt",
-    "top_left":"{57,1,0,dirt}", "top_mid":"{57,1,0,dirt}","top_right":"{57,1,0,dirt}",
-    "mid_left":"{57,1,0,dirt}", "mid_mid":"{57,1,0,dirt}","mid_right":"{57,1,0,dirt}",
-    "bottom_left":"{57,1,0,dirt}","bottom_mid":"{57,1,0,dirt}","bottom_right":"{57,1,0,dirt}"
+    "RecipeName":"Just Some dirt",
+    "top_left":[57,1,0,"dirt","InsertEnchantment"], "top_mid":[57,1,0,"dirt","InsertEnchantment"],"top_right":[57,1,0,"dirt","InsertEnchantment"],
+    "mid_left":[57,1,0,"dirt","InsertEnchantment"], "mid_mid":[0,1,0,"air","InsertEnchantment"],"mid_right":[57,1,0,"dirt","InsertEnchantment"],
+    "bottom_left":[57,1,0,"dirt","InsertEnchantment"],"bottom_mid":[57,1,0,"dirt","InsertEnchantment"],"bottom_right":[57,1,0,"dirt","InsertEnchantment"],
+    "Result":[3,1,0,"dirt","InsertEnchantment",["test"]],
+    "Enhanced":false
 }

@@ -16,3 +16,4 @@ function onRClick(plr,bx,by,bz,bf,cx,cy,cz)
     
   end
 end
+end
