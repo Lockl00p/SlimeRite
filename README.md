@@ -4,3 +4,5 @@
  
  Slimefun Repo:
  https://github.com/Slimefun/Slimefun4
+
+ Also, this is a hobby hobby project, as in I only really be messing with it if I have nothing to do, including gaming.
