@@ -41,6 +41,7 @@ function Initialize(Plugin)
 	PLUGIN = Plugin -- NOTE: only needed if you want OnDisable() to use GetName() or something like that
   addhook(plugin.HOOK_PLAYER_JOINED,whenSpawned)
   addhook(plugin.HOOK_PLAYER_RIGHT_CLICK,onRClick)
+  addhook(plugin.HOOK_TAKE_DAMAGE,OnTakeDamage)
   --Hooks End
   
   
@@ -56,7 +57,15 @@ function Initialize(Plugin)
 end
 
 --For the sake of I don't wanna make this a complicated hellhole, I'm about to use other lua files.
+--Also, Ifeel like ruining someone
+function OnTakeDamage(Receiver, TDI)
+	LOG("Damage: Raw ".. TDI.RawDamage .. ", Final:" .. TDI.FinalDamage);
 
+	-- If the attacker is a spider, make it deal 999 points of damage (insta-death spiders):
+	if ((TDI.Attacker ~= nil) and TDI.Attacker:IsA("cWither")) then
+		TDI.FinalDamage = 15;
+	end
+end
 
 
 function OnDisable()
