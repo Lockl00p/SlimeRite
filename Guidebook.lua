@@ -5,38 +5,14 @@ local LeftOutIds = {}
 
 function getpdata(plr)
    
-  
-  
-  if cFile:IsFile(const.pdatapath..plr:GetName().."_ItemsUnlocked.json") == false then
-   --Creates Plrdata
-    pdata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","w")
-    LOG("New Playerdata file created for "..plr:GetName())
-    
-    pdata:write("{'ItemsUnlocked' : [0,1]}")
-    io.close(pdata)
-  end
-  
+  editpdata(plr:GetUUID(),"","")
   
     
-    return cJson:Parse(cFile:ReadWholeFile(const.pdatapath..plr:GetName().."_ItemsUnlocked.json"))
+    return ""
   
 end
 
 
-function setpdata(plr,key, awmd) --probably not working
-  local pldata = io.open(const.pdatapath..plr:GetName().."_ItemsUnlocked.json","r+")
-  local pdata = getpdata(plr)
-  if awmd == "w" then 
-    LOG("This is a Debug function, do not use it unless you're sure you want to erase the player's data and replace it. If you are sure, next time type in [1,true] for this parameter")
-  elseif awmd == {1,true} then
-    LOG("Replacing"..plr:GetName() "data.")
-    pdata.ItemsUnlocked = key
-    pldata:write(cJson:Serialize(pdata))
-  else
-    table.insert(pdata.ItemsUnlocked,key)
-    pldata:write(cJson:Serialize(pdata))
-  end
-  end
   
   
   
@@ -73,7 +49,7 @@ function guideborder()
   --as a refresher, first param for for loop is variable made, second is max num of var, 3rd is increment value (default is one)
 
     for x = 0,7 do
-    guidecontents:SetSlot(x,0,const.emptyitem)
+    guidecontents:SetSlot(x,0,cItem(160,1,15,"","-"))
   end
   --The Settings Compass
   guidecontents:SetSlot(8,0,cItem(345,1,0,"","Settings"))
@@ -90,7 +66,7 @@ function guideborder()
         guidecontents:SetSlot(x,5,cItem(160,1,5,"","Right"))
       end
     else 
-      guidecontents:SetSlot(x,5,const.emptyitem)
+      guidecontents:SetSlot(x,5,cItem(160,1,15,"","-"))
     end
   end
 end

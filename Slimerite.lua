@@ -43,7 +43,7 @@ function Initialize(Plugin)
   addhook(plugin.HOOK_PLAYER_RIGHT_CLICK,onRClick)
   addhook(plugin.HOOK_TAKE_DAMAGE,OnTakeDamage)
   --Hooks End
-  
+
   
   
 	-- Command Bindings = plugin.BindCommand("commandname", "permissionnode", functocall,"description of command and parameters")

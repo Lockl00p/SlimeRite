@@ -1,7 +1,7 @@
-local const = {}
+const = {}
 const.pathseparator = cFile:GetPathSeparator()
 
-const.pdatapath = cPluginManager:GetPluginsPath().. const.pathseparator.."SlimeRite"..const.pathseparator.. "playerdata"..const.pathseparator
+
 
 const.pluginpath = cPluginManager:GetPluginsPath().. const.pathseparator.."SlimeRite"..const.pathseparator
 
@@ -13,11 +13,9 @@ const.plrdatatemplate = cFile:ReadWholeFile(const.pluginpath.."PdataTemplate.jso
 const.Catfolder = const.pluginpath.."Categories"..const.pathseparator
 const.Itemfolder = const.pluginpath.."Items"..const.pathseparator
 const.Machinefolder = const.pluginpath.."Machines"..const.pathseparator
-
+const.pdata = sqlite3.open(const.pluginpath.."playerdata.db")
 function const.CustomItems()
 local toret cFile:GetFolderContents(const.ItemFolder)
 table.remove(toret,"ItemRecipeTemplate.json")
 return toret
 end
-
-return const
