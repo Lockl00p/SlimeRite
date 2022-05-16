@@ -17,9 +17,6 @@ const.Machinefolder = const.pluginpath.."Machines"..const.pathseparator
 function const.CustomItems()
 local toret cFile:GetFolderContents(const.ItemFolder)
 table.remove(toret,"ItemRecipeTemplate.json")
-for x,z in ipairs(toret) do 
-  toret[x+1] = toret[x+1]:gsub(".json","")
-end
 return toret
 end
 
