@@ -10,11 +10,11 @@
     return 0
     end
         
-  function editpdata(uuid,sql,resultfunc)
-    exists = false
+  function editpdata(sql,resultfunc)
     --Adds uuid data
     pcall(db:exec("INSERT INTO data (uuid) VALUES ('"..uuid.."')" ,nfunc,'test_udata'))
     for num1 in db:urows('select * from data') do LOG(num1) end
+    return db:exec(sql,resultfunc,'test_udata')
   end
   
         
